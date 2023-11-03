@@ -1,0 +1,3 @@
+GPUtil
+psutil
+tensorflow
