@@ -7,8 +7,8 @@ class RAM_Info():
     """
 
     @staticmethod
-    def get_gpu_vram_info(info_type='all', 
-                          data_type='gb'):
+    def get_gpu_vram_info(info_type: str='all', 
+                          data_type: str='gb'):
         """
         This function returns the GPU VRAM information.
         
@@ -50,16 +50,19 @@ class RAM_Info():
         return gpu_info
     
     @staticmethod
-    def get_ram_info(info_type='all', data_type='gb'):
+    def get_ram_info(info_type: str='all',
+                     data_type: str='gb',
+                     return_dict: bool=True):
         """
         This function returns the RAM information.
         
         Parameters:
         info_type (str or list): The type of information to return. If 'all', returns all information. If a list, returns only the information specified in the list.
         data_type (str): The type of data computations. Two types: 'gb' - gigabytes, 'mb' - megabytes.
+        return_dict (bool): If True, returns a dictionary. If False, returns a string.
 
         Returns:
-        dict: A dictionary containing the RAM information.
+        dict or str: A dictionary or string containing the RAM information.
         """
         if data_type == 'gb':
             count_data = 3
@@ -76,9 +79,6 @@ class RAM_Info():
                 ram_info = {key: ram_info.get(key) for key in info_type if key in ram_info}
             elif info_type in ram_info:
                 ram_info = {info_type: ram_info.get(info_type)}
-            else:
-                print(ValueError(f"Invalid info_type: {info_type}. Valid options are 'all', 'total', 'used', 'free'.\nInitialization will continue, but output of data about VRAM wont be."))
-                return None
+        if not return_dict:
+            ram_info = ', '.join(f'{k}: {v}' for k, v in ram_info.items())
         return ram_info
-    
-print(RAM_Info.get_gpu_vram_info(['total', 'used'], data_type='mb'))

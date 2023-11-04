@@ -6,7 +6,8 @@ class RealTimeCPUUsage:
     """
     This class is used to get the real-time CPU usage.
     """
-    def __init__(self, interval=1, print_output=True):
+    def __init__(self, interval: int=1, 
+                 print_output: bool=True):
         self.interval = interval
         self.print_output = print_output
         self.running = False
@@ -36,7 +37,7 @@ class RealTimeCPUUsage:
             self.thread.join()
     
     @staticmethod
-    def current(interval: int):
+    def current(interval: int=1):
         """
         This function returns the current CPU usage.
 
@@ -45,16 +46,11 @@ class RealTimeCPUUsage:
         
         Returns:
         float: The current CPU usage in percent.
+
+        Usage:
+        ```python
+        usage = RealTimeCPUUsage()
+        usage.current(interval=1)
+        ```
         """
         return psutil.cpu_percent(interval=interval)
-
-# Example usage:
-cpu_usage_monitor = RealTimeCPUUsage(interval=2, print_output=True)
-cpu_usage_monitor.start()
-time.sleep(10)
-cpu_usage_monitor.stop()
-# To stop the monitoring, call the stop method.
-# cpu_usage_monitor.stop()
-# To get the current CPU usage, call the current method.
-# current_cpu_usage = cpu_usage_monitor.current(interval=1)
-

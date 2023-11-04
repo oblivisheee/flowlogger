@@ -1,2 +1,0 @@
-from system_status import RAM_Info
-from system_status import RealTimeCPUUsage
