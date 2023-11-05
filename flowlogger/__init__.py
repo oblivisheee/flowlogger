@@ -5,7 +5,7 @@ from flowlogger.logger.system_status.ram_status import RAM_Info
 def getvram(info_type: str='all', 
                           data_type: str='gb',
                           return_dict: bool=True):
-    RAM_Info.get_gpu_vram_info(info_type=info_type, data_type=data_type, return_dict=return_dict)
+    return RAM_Info.get_gpu_vram_info(info_type=info_type, data_type=data_type, return_dict=return_dict)
 
 def getram(info_type: str='all',
                     data_type: str='gb',
