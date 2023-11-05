@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.2'
+version = '0.2.2'
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
@@ -14,7 +14,7 @@ setup(
     description=f'This is a small library for logging while training ML. Current version is {version}, its a feature-poor pre-alpha.',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    packages=find_packages(where='.', include=['flowlogger*']),    
+    packages=find_packages(),    
     install_requires=['GPUtil', 'psutil'],
     classifiers=[
         "Programming Language :: Python :: 3",
