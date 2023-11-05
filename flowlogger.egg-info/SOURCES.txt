@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+flowlogger/__init__.py
+flowlogger.egg-info/PKG-INFO
+flowlogger.egg-info/SOURCES.txt
+flowlogger.egg-info/dependency_links.txt
+flowlogger.egg-info/requires.txt
+flowlogger.egg-info/top_level.txt
