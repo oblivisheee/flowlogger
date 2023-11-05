@@ -1,3 +1,5 @@
 *__pycache__
 build
-dict
+dist
+flowlogger/__pycache__
+flowlogger.egg-info
