@@ -3,34 +3,48 @@ import time
 from threading import Thread
 
 class RealTimeCPUUsage:
-    """
-    This class is used to get the real-time CPU usage.
-    """
     def __init__(self, interval: int=1, 
-                 print_output: bool=True):
+                 print_output: bool=True,
+                 save_path: str=''):
+        """
+        Initialize the RealTimeCPUUsage class.
+
+        Parameters:
+        interval(int): The interval in which the average appearance will be evaluated.
+        print_output(bool): If True, the CPU usage will be printed to the console.
+        save_path(str): If not empty, the CPU usage will be saved to the specified file.
+        """
         self.interval = interval
         self.print_output = print_output
+        self.save_path = save_path
         self.running = False
         self.thread = None
 
     def start(self):
         """
-        This function starts the real-time CPU usage monitoring.
+        Start the real-time CPU usage monitoring.
         """
         self.running = True
         self.thread = Thread(target=self._monitor_cpu_usage)
         self.thread.start()
 
     def _monitor_cpu_usage(self):
+        """
+        Monitor the CPU usage in real-time.
+        """
         while self.running:
             cpu_usage = psutil.cpu_percent(interval=self.interval)
+            current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
             if self.print_output:
-                print(f'CPU Usage: {cpu_usage} %')
+                print(f'CPU Usage: {cpu_usage} % at {current_time}')
+            if self.save_path:
+                with open(self.save_path, 'a') as f:
+                    f.write(f'CPU Usage: {cpu_usage} % at {current_time}\n')
             time.sleep(self.interval)
 
     def stop(self):
         """
-        This function stops the real-time CPU usage monitoring.
+        Stop the real-time CPU usage monitoring.
         """
         self.running = False
         if self.thread is not None:
@@ -39,7 +53,7 @@ class RealTimeCPUUsage:
     @staticmethod
     def current(interval: int=1):
         """
-        This function returns the current CPU usage.
+        Get the current CPU usage.
 
         Parameters:
         interval(int): The interval in which the average appearance will be evaluated.
