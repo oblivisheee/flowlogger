@@ -2,7 +2,7 @@
 flowlogger currently is small lib in pre-alpha version for helping with ML training logging.
 # What is this?
 
-flowlogger is a lib for ML training logging, currently is very few functions, currently will be improved.
+flowlogger is a lib for ML training logging, currently is very few functions, in future will be improved.
 *Currently in pre alpha*
 # Installing
 Through pip:
