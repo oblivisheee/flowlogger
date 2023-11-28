@@ -14,6 +14,7 @@ pip install flowlogger
 
 Using dict:
 ```python
+import flowlogger as fl
 options = {
         'class_name': 'Test'
         'save_path': 'test.log',
@@ -28,7 +29,7 @@ print_world()
 ```
 Using vars:
 ```python
-
+import flowlogger as fl
 @fl.flclass(class_name='Test', save_path='hello.log')
 def five_plus_five():
     solution = 5 + 5
