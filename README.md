@@ -5,7 +5,7 @@ flowlogger currently is small lib in pre-alpha version for helping with ML train
 flowlogger is a lib for ML training logging, currently is very few functions, in future will be improved.
 *Currently in pre alpha*
 # Installing
-Through pip:
+Via pip:
 ```python
 pip install flowlogger
 ```
