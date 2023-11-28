@@ -18,7 +18,7 @@ import flowlogger as fl
 options = {
         'class_name': 'Test',
         'save_path': 'test.log',
-        'print_output': True
+        'print_output': True,
         'return_dict': True
     }
 @fl.flclass(options=options)
